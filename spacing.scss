@@ -1,0 +1,53 @@
+$breakpoints: (
+    xs: '(max-width: 599.98px)',
+    sm: '(min-width: 600px) and (max-width: 959.98px)',
+    md: '(min-width: 960px) and (max-width: 1279.98px)',
+    lg: '(min-width: 1280px) and (max-width: 1919.98px)',
+    xl: '(min-width: 1920px)'
+);
+
+$spacing: (
+    1: '0.25rem',
+    2: '0.50rem',
+    3: '0.75rem',
+    4: '1rem',
+    5: '1.25rem',
+    6: '1.5rem',
+    7: '1.75rem',
+    8: '2rem',
+    9: '2.5rem',
+    10: '3rem',
+    11: '3.5rem',
+    12: '4rem'
+);
+
+$directions: (
+    end: 'r',
+    start: 'l',
+    top: 't',
+    bottom: 'b'
+);
+
+@each $spacingKey, $spacingValue in $spacing {
+
+    @each $directionKey, $directionValue in $directions {
+        .m#{$directionValue}-#{$spacingKey} {
+            margin-#{$directionKey}: #{$spacingValue};
+        }
+    }
+
+    .m-#{$spacingKey} {
+        margin: #{$spacingValue};
+    }
+
+   @each $directionKey, $directionValue in $directions {
+        .p#{$directionValue}-#{$spacingKey} {
+            padding-#{$directionKey}: #{$spacingValue};
+        }
+    }
+
+    .p-#{$spacingKey} {
+        padding: #{$spacingValue};
+    }
+
+}
